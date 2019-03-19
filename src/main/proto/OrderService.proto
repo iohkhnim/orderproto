@@ -16,7 +16,7 @@ message CheckoutDataProto {
     int32 product_id = 1;
     int32 amount = 2;
 }
-message CreateOrderItemRequest {
+/*message CreateOrderItemRequest {
     int32 order_id = 1;
     int32 product_id = 2;
     int32 stock_id = 3;
@@ -25,8 +25,8 @@ message CreateOrderItemRequest {
 }
 message CreateOrderItemResponse {
     int32 orderItem_id = 1;
-}
+}*/
 service OrderService {
     rpc createOrder (CreateOrderRequest) returns (CreateOrderResponse);
-    rpc createOrderItem (CreateOrderItemRequest) returns (CreateOrderItemResponse);
+    //rpc createOrderItem (CreateOrderItemRequest) returns (CreateOrderItemResponse);
 }
