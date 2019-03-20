@@ -26,7 +26,18 @@ message CreateOrderItemRequest {
 message CreateOrderItemResponse {
     int32 orderItem_id = 1;
 }
+message GetOrdersRequest {
+    int32 customer_id = 1;
+}
+message GetOrdersResponse {
+    int32 order_id = 1;
+    int32 order_number = 2;
+    int32 total_price = 3;
+    string created_at = 4;
+}
+
 service OrderService {
     rpc createOrder (CreateOrderRequest) returns (CreateOrderResponse);
     rpc createOrderItem (CreateOrderItemRequest) returns (CreateOrderItemResponse);
+    rpc getOrders (GetOrdersRequest) returns (GetOrdersResponse);
 }
