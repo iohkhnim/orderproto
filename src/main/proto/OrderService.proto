@@ -25,7 +25,23 @@ message GetOrdersResponse {
   int32 total_price = 3;
   string created_at = 4;
 }
+message TrackingOrderDetailsRequest {
+  int32 order_id = 1;
+  int32 customer_id = 2;
+}
+message OrderItem {
+  string product_name = 1;
+  int32 price = 2;
+  int32 amount = 3;
+  string supplier_name = 4;
+  int32 total_order_item = 5;
+}
+message TrackingOrderDetailsResponse {
+  GetOrdersResponse order = 1;
+  repeated OrderItem orderItem = 2;
+}
 service OrderService {
   rpc createOrder (CreateOrderRequest) returns (CreateOrderResponse);
   rpc getOrders (GetOrdersRequest) returns (stream GetOrdersResponse);
+  rpc trackingOrderDetails (TrackingOrderDetailsRequest) returns (TrackingOrderDetailsResponse);
 }
