@@ -7,7 +7,8 @@ option java_multiple_files = true;
 
 message CreateOrderRequest {
   int32 customer_id = 1;
-  repeated CheckoutDataProto checkoutDataProto = 2;
+  string address = 2;
+  repeated CheckoutDataProto checkoutDataProto = 3;
 }
 message CreateOrderResponse {
   int32 order_id = 1;
@@ -24,10 +25,13 @@ message GetOrdersResponse {
   int64 order_number = 2;
   int32 total_price = 3;
   string created_at = 4;
+  string address = 5;
+  int32 status = 6;
 }
 message TrackingOrderDetailsRequest {
   int32 order_id = 1;
   int32 customer_id = 2;
+  string role = 3;
 }
 message OrderItem {
   string product_name = 1;
